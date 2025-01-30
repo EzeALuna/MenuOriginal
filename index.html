@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Hamburguesería</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <img src="/placeholder.svg?height=200&width=800" alt="Portada de la Hamburguesería" class="header-image">
+        <h1>Menú de Hamburguesería</h1>
+        
+        <section id="menu">
+            <h2>Nuestro Menú</h2>
+            <div id="menu-items"></div>
+        </section>
+        
+        <section id="cart-container">
+            <h2>Carrito de Compras</h2>
+            <div id="cart-items"></div>
+            <p>Total: $<span id="total-price">0.00</span></p>
+        </section>
+        
+        <section id="shipping-form">
+            <h2>Información de Envío</h2>
+            <form id="shipping">
+                <input type="text" id="name" placeholder="Nombre Completo" required>
+                <input type="text" id="address" placeholder="Dirección" required>
+                <input type="text" id="city" placeholder="Ciudad" required>
+                <input type="text" id="phone" placeholder="Teléfono" required>
+            </form>
+        </section>
+        
+        <button onclick="sendWhatsApp()">Enviar por WhatsApp</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
