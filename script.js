@@ -37,7 +37,6 @@ const menuItems = [
                                 </label>
                             `).join('')}
                         ` : ''}
-                        <br> <br>
                         <button onclick="addToCart(${item.id})">Agregar al Carrito</button>
                     </div>
                 `;
@@ -76,6 +75,7 @@ const menuItems = [
             }
 
             updateCart();
+            showPopup();
         }
 
         function updateCart() {
@@ -166,6 +166,13 @@ const menuItems = [
             window.open(whatsappUrl, '_blank');
         }
 
+        function showPopup() {
+            const popup = document.getElementById("popup");
+            popup.style.display = "flex";
+            setTimeout(() => {
+                popup.style.display = "none";
+            }, 2000); // Ocultar después de 2 segundos
+        }
+
         // Inicializar el menú al cargar la página
         displayMenu();
-  
