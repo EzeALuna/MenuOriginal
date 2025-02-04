@@ -8,50 +8,50 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <img src="/placeholder.svg?height=200&width=800" alt="Portada de la Hamburguesería" class="header-image">
-        <h1>Menú de Hamburguesería</h1>
-        
-        <section id="menu">
-            <h2>Nuestro Menú</h2>
-            <div id="menu-items"></div>
-        </section>
-        
-        <section id="cart-container">
-            <h2>Carrito de Compras</h2>
-            <div id="cart-items"></div>
-            <p>Total: $<span id="total-price">0.00</span></p>
-        </section>
-        
-        <section id="shipping-form">
-            <h2>Información de Envío</h2>
-            <form id="shipping">
-                <input type="text" id="name" placeholder="Nombre Completo" required>
-                <input type="text" id="address" placeholder="Dirección" required>
-                <input type="text" id="city" placeholder="Ciudad" required>
-                <input type="text" id="phone" placeholder="Teléfono" required>
-            </form>
-        </section>
-        
-        <button onclick="sendWhatsApp()">Enviar por WhatsApp</button>
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <p>¡Producto agregado al carrito!</p>
+        <div class="container">
+            <img src="/Img/portada.jfif" alt="Portada de la Hamburguesería" class="header-image">
+            <h1>Menú de Hamburguesería</h1>
+            
+            <section id="menu">
+                <h2>Nuestro Menú</h2>
+                <div id="menu-items"></div>
+            </section>
+            
+            <section id="cart-container">
+                <h2>Carrito de Compras</h2>
+                <div id="cart-items"></div>
+                <p>Total: $<span id="total-price">0.00</span></p>
+            </section>
+            
+            <section id="shipping-form">
+                <h2>Información de Envío</h2>
+                <form id="shipping">
+                    <input type="text" id="name" placeholder="Nombre Completo" required>
+                    <input type="text" id="address" placeholder="Dirección" required>
+                    <input type="text" id="city" placeholder="Ciudad" required>
+                    <input type="text" id="phone" placeholder="Teléfono" required>
+                </form>
+            </section>
+            
+            <button onclick="sendWhatsApp()" style="width: 100%;">Hacer el pedido</button>
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <p>¡Producto agregado al carrito!</p>
+                </div>
             </div>
-        </div>
-    </div>
+        
 
     <footer>
-        <div class="container footer-content">
+        <div class=".container footer-content">
             <div class="social-icons">
                 <p>&copy; Pagina diseñada por DLDigital.</p> </div>
-                <div class="social-icons">
                 <a href="https://www.facebook.com/DLDigital.SanJusto/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
                 <a href="https://www.instagram.com/d.l.digital/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 <a href="https://w.app/x9yhmk" aria-label="Instagram"><i class="fab fa-whatsapp"></i></a>
             </div>
         </div>
     </footer>
+</div>
 
     <script src="script.js"></script>
 </body>

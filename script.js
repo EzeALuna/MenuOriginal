@@ -1,19 +1,19 @@
 const menuItems = [
-    { id: 1, name: "Hamburguesa Clásica", price: 5.99, image: "/placeholder.svg?height=100&width=100&text=Clásica", description: "Deliciosa hamburguesa con carne de res, lechuga, tomate y nuestra salsa especial.", extras: [
+    { id: 1, name: "Hamburguesa Clásica", price: 5.99, image: "/Img/clasica.jpg", description: "Deliciosa hamburguesa con carne de res, lechuga, tomate y nuestra salsa especial.", extras: [
         { name: "queso", price: 0.50 },
         { name: "bacon", price: 1.00 },
         { name: "huevo", price: 0.75 }
     ]},
-    { id: 2, name: "Hamburguesa Doble", price: 7.99, image: "/placeholder.svg?height=100&width=100&text=Doble", description: "El doble de sabor con dos carnes, queso cheddar, cebolla caramelizada y pepinillos.", extras: [
+    { id: 2, name: "Hamburguesa Doble", price: 7.99, image: "/Img/doble.avif", description: "El doble de sabor con dos carnes, queso cheddar, cebolla caramelizada y pepinillos.", extras: [
         { name: "queso", price: 0.50 },
         { name: "bacon", price: 1.00 },
         { name: "huevo", price: 0.75 }
     ]},
-    { id: 3, name: "Papas Fritas", price: 2.99, image: "/placeholder.svg?height=100&width=100&text=Papas", description: "Crujientes papas fritas, perfectamente sazonadas con nuestra mezcla secreta de especias.", extras: [
+    { id: 3, name: "Papas Fritas", price: 2.99, image: "/Img/papas.avif", description: "Crujientes papas fritas, perfectamente sazonadas con nuestra mezcla secreta de especias.", extras: [
         { name: "queso", price: 0.50 },
         { name: "bacon", price: 1.00 }
     ]},
-    { id: 4, name: "Refresco", price: 1.99, image: "/placeholder.svg?height=100&width=100&text=Refresco", description: "Refrescante bebida para acompañar tu comida. Variedad de sabores disponibles.", extras: [] }
+    { id: 4, name: "Refresco", price: 1.99, image: "/Img/gaseosa.jpg", description: "Refrescante bebida para acompañar tu comida. Variedad de sabores disponibles.", extras: [] }
 ];
 
         let cartItems = [];
