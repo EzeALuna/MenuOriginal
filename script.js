@@ -255,14 +255,27 @@ function calculateTotal() {
 }
 
 function sendWhatsApp() {
-    const name = document.getElementById("name").value;
-    const address = document.getElementById("address").value;
-    const city = document.getElementById("city").value;
-    const phone = document.getElementById("phone").value;
+    const orderType = document.querySelector('input[name="order-type"]:checked').value;
+    let orderInfo = "";
 
-    if (!name || !address || !city || !phone) {
-        alert("Por favor, complete toda la información de envío.");
-        return;
+    if (orderType === 'takeaway') {
+        orderInfo = "Pedido para llevar";
+    } else if (orderType === 'eat-in') {
+        const tableNumber = document.getElementById('table-number').value;
+        if (!tableNumber) {
+            alert("Por favor, seleccione una mesa.");
+            return;
+        }
+        orderInfo = `Comer en el local - Mesa ${tableNumber}`;
+    } else if (orderType === 'delivery') {
+        const name = document.getElementById("name").value;
+        const address = document.getElementById("address").value;
+
+        if (!name || !address) {
+            alert("Por favor, complete toda la información de envío.");
+            return;
+        }
+        orderInfo = `Envío a domicilio:%0A${name}%0A${address}`;
     }
 
     let message = "Pedido de Hamburguesas:%0A";
@@ -276,8 +289,7 @@ function sendWhatsApp() {
     });
     message += "---------------------%0A";
     message += `Total: $${document.getElementById("total-price").textContent}%0A%0A`;
-    message += "Información de Envío:%0A";
-    message += `${name}%0A${address}%0A${city}%0ATeléfono: ${phone}`;
+    message += `Tipo de pedido: ${orderInfo}`;
 
     const whatsappUrl = `https://wa.me/+5491123965859/?text=${message}`;
     window.open(whatsappUrl, '_blank');
@@ -314,3 +326,27 @@ window.onclick = function(event) {
 
 // Inicializar el menú al cargar la página
 displayMenu();
+
+function handleOrderTypeChange() {
+    const orderType = document.querySelector('input[name="order-type"]:checked').value;
+    const tableSelection = document.getElementById('table-selection');
+    const shippingForm = document.getElementById('shipping-form');
+
+    if (orderType === 'eat-in') {
+        tableSelection.style.display = 'block';
+        shippingForm.style.display = 'none';
+    } else if (orderType === 'delivery') {
+        tableSelection.style.display = 'none';
+        shippingForm.style.display = 'block';
+    } else {
+        tableSelection.style.display = 'none';
+        shippingForm.style.display = 'none';
+    }
+}
+
+document.querySelectorAll('input[name="order-type"]').forEach(radio => {
+    radio.addEventListener('change', handleOrderTypeChange);
+});
+
+// Initialize the form display
+handleOrderTypeChange();

@@ -23,8 +23,10 @@
                 <button class="prev">&#10094;</button>
                 <button class="next">&#10095;</button>
             </div>
+            <div class="buttons">
             <button id="hoursButton" class="hours-button">Horario</button>
             <button id="hoursButtons" class="hours-button" style="background-color: whitesmoke; color: #000;">Horarios</button>
+            </div>
         </div>
 
         <div id="hoursModal" class="hours-modal">
@@ -40,23 +42,51 @@
         <h4>Atendido por sus dueños desde 1992</h4>
         
         <section id="menu">
-            <h2>Menú</h2>
+            <h2><a href="Img/Menú.pdf" download="Menú.pdf">Descargar Menú</a></h2>
             <div id="menu-sections"></div>
         </section>
         
         <section id="cart-container">
-            <h2>Carrito de Compras</h2>
+            <h2>Pedido</h2>
             <div id="cart-items"></div>
             <p>Total: $<span id="total-price">0.00</span></p>
         </section>
         
+        <section id="order-options">
+            <h2>Opciones de entrega</h2>
+            <div>
+                <input type="radio" id="takeaway" name="order-type" value="takeaway" checked>
+                <label for="takeaway">Retiro del local</label>
+            </div>
+            <div>
+                <input type="radio" id="eat-in" name="order-type" value="eat-in">
+                <label for="eat-in">Comer en el local</label>
+            </div>
+            <div>
+                <input type="radio" id="delivery" name="order-type" value="delivery">
+                <label for="delivery">Envío a domicilio</label>
+            </div>
+        </section>
+
+        <section id="table-selection" style="display: none;">
+            <h2>Selección de Mesa</h2>
+            <select id="table-number">
+                <option value="">Seleccione una mesa</option>
+                <option value="1">Mesa 1</option>
+                <option value="2">Mesa 2</option>
+                <option value="3">Mesa 3</option>
+                <option value="4">Mesa 4</option>
+                <option value="5">Mesa 5</option>
+            </select>
+        </section>
+
         <section id="shipping-form">
             <h2>Información de Envío</h2>
             <form id="shipping">
                 <input type="text" id="name" placeholder="Nombre" required>
                 <input type="text" id="address" placeholder="Dirección y Especificaciones" required>
-                <input type="text" id="city" placeholder="Ciudad" required>
-                <input type="text" id="phone" placeholder="Teléfono" required>
+                <!-- <input type="text" id="city" placeholder="Ciudad" required>
+                <input type="text" id="phone" placeholder="Teléfono" required> -->
             </form>
         </section>
         
