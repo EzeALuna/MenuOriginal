@@ -114,7 +114,6 @@ h3{
 }
 h4 {
     color: #333;
-    text-align: center;
     margin-top: 0%;
 }
 #menu, #cart-container, #shipping-form {
@@ -180,7 +179,7 @@ button:hover {
     background-color: #45a049;
 }
 .add-to-cart-btn {
-    align-self: flex-end;
+    text-align: center;
     margin-top: 10px;
 }
 input[type="number"] {
@@ -219,6 +218,7 @@ input[type="text"], select {
 }
 .cart-item-info {
     flex-grow: 1;
+    text-align: center;
 }
 .cart-item-actions {
     display: flex;

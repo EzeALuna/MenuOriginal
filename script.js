@@ -213,11 +213,11 @@ function updateCart() {
                 <img src="${item.image}" alt="${item.name}" onclick="openImageModal('${item.image}', '${item.name}')">
                 <div class="cart-item-info">
                     <h3>${item.name}</h3>
-                    <p>Precio base: $${item.price.toFixed(2)}</p>
+                    <p>Precio unidad: $${item.price.toFixed(2)}</p>
                     ${item.extras.length > 0 ? `
                         <p>Extras: ${item.extras.map(extra => `${extra.name} (+$${extra.price.toFixed(2)})`).join(', ')}</p>
                     ` : ''}
-                    <p>Precio total por unidad: $${item.totalPrice.toFixed(2)}</p>
+                    
                     <p>Subtotal: $${(item.totalPrice * item.quantity).toFixed(2)}</p>
                 </div>
             </div>
