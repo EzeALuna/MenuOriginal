@@ -2,63 +2,79 @@ const menuSections = [
     {
         name: "Destacados",
         items: [
-            { id: 1, name: "Hamburguesa Especial", price: 8.99, image: "Img/completa.png", 
+            {
+                id: 1, name: "Hamburguesa Especial", price: 8.99, image: "Img/completa.png",
                 descripcion: "Medallon de carne de 120 grs, lechuga, tomate, porcion de papas y pan de papa",
                 extras: [
-                { name: "queso", price: 0.50 },
-                { name: "bacon", price: 1.00 },
-                { name: "huevo", price: 0.75 }
-            ]},
-            { id: 2, name: "Combo del Día", price: 10.99, image: "Img/conpapas.png", 
+                    { name: "queso", price: 0.50 },
+                    { name: "bacon", price: 1.00 },
+                    { name: "huevo", price: 0.75 }
+                ]
+            },
+            {
+                id: 2, name: "Combo del Día", price: 10.99, image: "Img/conpapas.png",
                 descripcion: "Medallon de carne de 120 grs, lechuga, tomate, porcion de papas y pan de papa",
-                 extras: [] }
+                extras: []
+            }
         ]
     },
     {
         name: "Picadas",
         items: [
-            { id: 3, name: "Nachos con Queso", price: 5.99, image: "Img/nachos.png", 
+            {
+                id: 3, name: "Nachos con Queso", price: 5.99, image: "Img/nachos.png",
                 descripcion: "Nachos con Queso",
                 extras: [
-                { name: "guacamole", price: 1.00 },
-                { name: "jalapeños", price: 0.50 }
-            ]},
-            { id: 4, name: "Alitas de Pollo", price: 7.99, image: "Img/alitas.png", 
+                    { name: "guacamole", price: 1.00 },
+                    { name: "jalapeños", price: 0.50 }
+                ]
+            },
+            {
+                id: 4, name: "Alitas de Pollo", price: 7.99, image: "Img/alitas.png",
                 descripcion: "Alitas de Pollo con salsa BBQ",
                 extras: [
-                { name: "salsa BBQ", price: 0.50 },
-                { name: "salsa picante", price: 0.50 }
-            ]}
+                    { name: "salsa BBQ", price: 0.50 },
+                    { name: "salsa picante", price: 0.50 }
+                ]
+            }
         ]
     },
     {
         name: "Hamburguesas",
         items: [
-            { id: 5, name: "Hamburguesa Clásica", price: 5.99, image: "Img/completa.png", 
+            {
+                id: 5, name: "Hamburguesa Clásica", price: 5.99, image: "Img/completa.png",
                 descripcion: "Medallon de carne de 120 grs, lechuga, tomate, porcion de papas y pan de papa",
                 extras: [
-                { name: "queso", price: 0.50 },
-                { name: "bacon", price: 1.00 },
-                { name: "huevo", price: 0.75 }
-            ]},
-            { id: 6, name: "Hamburguesa Doble", price: 7.99, image: "Img/conpapas.png", 
+                    { name: "queso", price: 0.50 },
+                    { name: "bacon", price: 1.00 },
+                    { name: "huevo", price: 0.75 }
+                ]
+            },
+            {
+                id: 6, name: "Hamburguesa Doble", price: 7.99, image: "Img/conpapas.png",
                 descripcion: "Medallon de carne de 120 grs, lechuga, tomate, porcion de papas y pan de papa",
                 extras: [
-                { name: "queso", price: 0.50 },
-                { name: "bacon", price: 1.00 },
-                { name: "huevo", price: 0.75 }
-            ]}
+                    { name: "queso", price: 0.50 },
+                    { name: "bacon", price: 1.00 },
+                    { name: "huevo", price: 0.75 }
+                ]
+            }
         ]
     },
     {
         name: "Gaseosas",
         items: [
-            { id: 7, name: "Coca-Cola", price: 1.99, image: "Img/coca.png", 
+            {
+                id: 7, name: "Coca-Cola", price: 1.99, image: "Img/coca.png",
                 descripcion: "Lata de gaseosa de 430 ml",
-                extras: [] },
-            { id: 8, name: "Fanta", price: 1.99, image: "Img/fanta.png", 
+                extras: []
+            },
+            {
+                id: 8, name: "Fanta", price: 1.99, image: "Img/fanta.png",
                 descripcion: "Lata de gaseosa de 430 ml",
-                extras: [] }
+                extras: []
+            }
         ]
     }
 ];
@@ -177,7 +193,7 @@ function addToCart(itemId) {
             name: input.value,
             price: parseFloat(input.dataset.price)
         }));
-    
+
     const cartItem = {
         ...item,
         extras: extras,
@@ -185,8 +201,8 @@ function addToCart(itemId) {
         totalPrice: item.price + extras.reduce((sum, extra) => sum + extra.price, 0)
     };
 
-    const existingItemIndex = cartItems.findIndex(i => 
-        i.id === itemId && 
+    const existingItemIndex = cartItems.findIndex(i =>
+        i.id === itemId &&
         JSON.stringify(i.extras) === JSON.stringify(extras)
     );
 
@@ -204,7 +220,7 @@ function addToCart(itemId) {
 function updateCart() {
     const cartContainer = document.getElementById("cart-items");
     cartContainer.innerHTML = "";
-    
+
     cartItems.forEach((item, index) => {
         const itemElement = document.createElement("div");
         itemElement.className = "cart-item";
@@ -278,6 +294,9 @@ function sendWhatsApp() {
         orderInfo = `Envío a domicilio:%0A${name}%0A${address}`;
     }
 
+    // Obtener el medio de pago seleccionado
+    const paymentMethod = document.querySelector('input[name="payment-method"]:checked').value;
+
     let message = "Pedido de Hamburguesas:%0A";
     message += "---------------------%0A";
     cartItems.forEach(item => {
@@ -289,64 +308,66 @@ function sendWhatsApp() {
     });
     message += "---------------------%0A";
     message += `Total: $${document.getElementById("total-price").textContent}%0A%0A`;
-    message += `Tipo de pedido: ${orderInfo}`;
+    message += `Tipo de pedido: ${orderInfo}%0A`;
+    message += "%0A";
+    message += `Medio de pago: ${paymentMethod}`;
 
     const whatsappUrl = `https://wa.me/+5491123965859/?text=${message}`;
     window.open(whatsappUrl, '_blank');
 }
 
-function showNotification(message) {
-    const notification = document.getElementById("notification");
-    notification.textContent = message;
-    notification.style.display = "block";
-    setTimeout(() => {
-        notification.style.display = "none";
-    }, 3000);
-}
-function openImageModal(src, alt) {
-    const modal = document.getElementById("imageModal");
-    const modalImg = document.getElementById("modalImage");
-    modal.style.display = "block";
-    modalImg.src = src;
-    modalImg.alt = alt;
-}
+    function showNotification(message) {
+        const notification = document.getElementById("notification");
+        notification.textContent = message;
+        notification.style.display = "block";
+        setTimeout(() => {
+            notification.style.display = "none";
+        }, 3000);
+    }
+    function openImageModal(src, alt) {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        modal.style.display = "block";
+        modalImg.src = src;
+        modalImg.alt = alt;
+    }
 
-const imageModal = document.getElementById("imageModal");
-const modalClose = imageModal.querySelector(".modal-close");
+    const imageModal = document.getElementById("imageModal");
+    const modalClose = imageModal.querySelector(".modal-close");
 
-modalClose.onclick = function() {
-    imageModal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == imageModal) {
+    modalClose.onclick = function () {
         imageModal.style.display = "none";
     }
-}
 
-// Inicializar el menú al cargar la página
-displayMenu();
-
-function handleOrderTypeChange() {
-    const orderType = document.querySelector('input[name="order-type"]:checked').value;
-    const tableSelection = document.getElementById('table-selection');
-    const shippingForm = document.getElementById('shipping-form');
-
-    if (orderType === 'eat-in') {
-        tableSelection.style.display = 'block';
-        shippingForm.style.display = 'none';
-    } else if (orderType === 'delivery') {
-        tableSelection.style.display = 'none';
-        shippingForm.style.display = 'block';
-    } else {
-        tableSelection.style.display = 'none';
-        shippingForm.style.display = 'none';
+    window.onclick = function (event) {
+        if (event.target == imageModal) {
+            imageModal.style.display = "none";
+        }
     }
-}
 
-document.querySelectorAll('input[name="order-type"]').forEach(radio => {
-    radio.addEventListener('change', handleOrderTypeChange);
-});
+    // Inicializar el menú al cargar la página
+    displayMenu();
 
-// Initialize the form display
-handleOrderTypeChange();
+    function handleOrderTypeChange() {
+        const orderType = document.querySelector('input[name="order-type"]:checked').value;
+        const tableSelection = document.getElementById('table-selection');
+        const shippingForm = document.getElementById('shipping-form');
+
+        if (orderType === 'eat-in') {
+            tableSelection.style.display = 'block';
+            shippingForm.style.display = 'none';
+        } else if (orderType === 'delivery') {
+            tableSelection.style.display = 'none';
+            shippingForm.style.display = 'block';
+        } else {
+            tableSelection.style.display = 'none';
+            shippingForm.style.display = 'none';
+        }
+    }
+
+    document.querySelectorAll('input[name="order-type"]').forEach(radio => {
+        radio.addEventListener('change', handleOrderTypeChange);
+    });
+
+    // Initialize the form display
+    handleOrderTypeChange();

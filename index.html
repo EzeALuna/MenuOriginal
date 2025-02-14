@@ -90,6 +90,27 @@
                 <input type="text" id="phone" placeholder="Teléfono" required> -->
             </form>
         </section>
+
+        <!-- Nuevo selector de medio de pago -->
+        <section id="payment-options">
+            <h2>Medio de Pago</h2>
+            <div>
+                <input type="radio" id="cash" name="payment-method" value="Efectivo" checked>
+                <label for="cash">Efectivo</label>
+            </div>
+            <div>
+                <input type="radio" id="debit-card" name="payment-method" value="Tarjeta de Débito">
+                <label for="debit-card">Tarjeta de Débito</label>
+            </div>
+            <div>
+                <input type="radio" id="credit-card" name="payment-method" value="Tarjeta de Crédito">
+                <label for="credit-card">Tarjeta de Crédito</label>
+            </div>
+            <div>
+                <input type="radio" id="mp" name="payment-method" value="Mercado Pago">
+                <label for="mp">Mercado Pago</label>
+            </div>
+        </section>
         
         <div class="whatsapp-btn-container">
             <button onclick="sendWhatsApp()">Enviar pedido</button>
