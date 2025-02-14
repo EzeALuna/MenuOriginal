@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Hamburguesería</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="carousel">
+            <div class="carousel-item active">
+                <img src="Img/cat.png" alt="Hamburguesa 1">
+            </div>
+            <div class="carousel-item">
+                <img src="Img/completa.png" alt="Hamburguesa 2">
+            </div>
+            <div class="carousel-item">
+                <img src="Img/conpapas.png" alt="Hamburguesa 3">
+            </div>
+            <div class="carousel-nav">
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+            </div>
+            <div class="buttons">
+            <button id="hoursButton" class="hours-button">Horario</button>
+            <button id="hoursButtons" class="hours-button" style="background-color: whitesmoke; color: #000;">Horarios</button>
+            </div>
+        </div>
+
+        <div id="hoursModal" class="hours-modal">
+            <div class="hours-content">
+                <span class="close">&times;</span>
+                <h2>Horarios de Atención</h2>
+                <p>Lunes a Viernes: 19:00 - 22:00</p>
+                <p>Sábados y Domingos: 19:00 - 23:00</p>
+            </div>
+        </div>
+
+        <h1>Hamburguesería CAT</h1>
+        <h4>Atendido por sus dueños desde 1992</h4>
+        
+        <section id="menu">
+            <h2><a href="Img/Menú.pdf" download="Menú.pdf">Descargar Menú</a></h2>
+            <br>
+            <div id="menu-sections"></div>
+        </section>
+        
+        <section id="cart-container">
+            <h2>Pedido</h2>
+            <div id="cart-items"></div>
+            <h2 style="color: red;">Total: $<span id="total-price">0.00</span></h2>
+        </section>
+        
+        <section id="order-options">
+            <h2>Opciones de entrega</h2>
+            <div>
+                <input type="radio" id="takeaway" name="order-type" value="takeaway" checked>
+                <label for="takeaway">Retiro del local</label>
+            </div>
+            <div>
+                <input type="radio" id="eat-in" name="order-type" value="eat-in">
+                <label for="eat-in">Comer en el local</label>
+            </div>
+            <div>
+                <input type="radio" id="delivery" name="order-type" value="delivery">
+                <label for="delivery">Envío a domicilio</label>
+            </div>
+        </section>
+
+        <section id="table-selection" style="display: none;">
+            <h2>Selección de Mesa</h2>
+            <select id="table-number">
+                <option value="">Seleccione una mesa</option>
+                <option value="1">Mesa 1</option>
+                <option value="2">Mesa 2</option>
+                <option value="3">Mesa 3</option>
+                <option value="4">Mesa 4</option>
+                <option value="5">Mesa 5</option>
+            </select>
+        </section>
+
+        <section id="shipping-form">
+            <h2>Información de Envío</h2>
+            <form id="shipping">
+                <input type="text" id="name" placeholder="Nombre" required>
+                <input type="text" id="address" placeholder="Dirección y Especificaciones" required>
+                <!-- <input type="text" id="city" placeholder="Ciudad" required>
+                <input type="text" id="phone" placeholder="Teléfono" required> -->
+            </form>
+        </section>
+
+        <!-- Nuevo selector de medio de pago -->
+        <section id="payment-options">
+            <h2>Medio de Pago</h2>
+            <div>
+                <input type="radio" id="cash" name="payment-method" value="Efectivo" checked>
+                <label for="cash">Efectivo</label>
+            </div>
+            <div>
+                <input type="radio" id="debit-card" name="payment-method" value="Tarjeta de Débito">
+                <label for="debit-card">Tarjeta de Débito</label>
+            </div>
+            <div>
+                <input type="radio" id="credit-card" name="payment-method" value="Tarjeta de Crédito">
+                <label for="credit-card">Tarjeta de Crédito</label>
+            </div>
+            <div>
+                <input type="radio" id="mp" name="payment-method" value="Mercado Pago">
+                <label for="mp">Mercado Pago</label>
+            </div>
+        </section>
+        
+        <div class="whatsapp-btn-container">
+            <button onclick="sendWhatsApp()">Enviar pedido</button>
+        </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+    <footer>
+        <div class=" footer-content">
+            <div class="social-icons">
+                <p>&copy; Pagina diseñada por DLDigital.</p> </div>
+                <a href="https://www.facebook.com/DLDigital.SanJusto/" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="https://www.instagram.com/d.l.digital/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://w.app/x9yhmk" aria-label="Instagram"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
