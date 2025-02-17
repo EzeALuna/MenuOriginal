@@ -172,7 +172,9 @@ function displayMenu() {
                                 `).join('')}
                             ` : ''}
                             <button class="add-to-cart-btn" onclick="addToCart(${item.id})">Agregar al Carrito</button>
-                        </div>
+                            <br>
+                        <a href="#cart-container"><i class="fa fa-shopping-cart fa-1x" style="color:green; display: flex; justify-content: center" ></i></a>
+                            </div>
                     </div>
                 `).join('')}
             </div>
