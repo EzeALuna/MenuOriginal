@@ -194,6 +194,7 @@ input[type="text"], select {
     border: 2px solid #4CAF50;
     padding: 15px;
     border-radius: 5px;
+    background-color: #45a04954;
 }
 #cart-items {
     margin-bottom: 10px;
@@ -323,7 +324,6 @@ i{
     margin-left: 0.5rem;
 }
 .social-icons a {
-
     font-size: 1.5rem;
     transition: color 0.3s ease;
 }

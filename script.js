@@ -274,12 +274,17 @@ function sendWhatsApp() {
     const orderType = document.querySelector('input[name="order-type"]:checked').value;
     let orderInfo = "";
 
+    if(cartItems.length > 0){
     if (orderType === 'takeaway') {
         orderInfo = "Pedido para llevar";
     } else if (orderType === 'eat-in') {
         const tableNumber = document.getElementById('table-number').value;
         if (!tableNumber) {
-            alert("Por favor, seleccione una mesa.");
+            Swal.fire({
+                title: "EN QUE MESA ESTA?",
+                text: "Por favor, seleccione una mesa",
+                icon: "Actualizar"
+              });
             return;
         }
         orderInfo = `Comer en el local - Mesa ${tableNumber}`;
@@ -288,8 +293,12 @@ function sendWhatsApp() {
         const address = document.getElementById("address").value;
 
         if (!name || !address) {
-            alert("Por favor, complete toda la información de envío.");
-            return;
+            Swal.fire({
+                title: "EN QUE DIRECCION ESTA?",
+                text: "Por favor, complete la información de envío.",
+                icon: "Actualizar"
+              });
+              return;
         }
         orderInfo = `Envío a domicilio:%0A${name}%0A${address}`;
     }
@@ -314,6 +323,13 @@ function sendWhatsApp() {
 
     const whatsappUrl = `https://wa.me/+5491123965859/?text=${message}`;
     window.open(whatsappUrl, '_blank');
+    }else{
+        Swal.fire({
+            title: "EL CARRITO ESTA VACIO",
+            text: "Elija algo producto",
+            icon: "alert"
+          });
+    }
 }
 
     function showNotification(message) {
